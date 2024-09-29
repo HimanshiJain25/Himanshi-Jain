@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side fix content</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; /* Prevent the window from scrolling */
+      font-family: sans-serif;
+      background-color: #282828;
+    }
+
+    .container {
+      width: 90%; /* Set the container width smaller */
+      height: 80vh; /* Make the container shorter */
+      overflow-y: scroll; /* Make this container scrollable */
+      margin: 5% auto; /* Center the container with margin */
+      padding-right: 15px; /* Space for the scroll bar */
+      border: 2px solid #fff; /* Add an outline to the container */
+      border-radius: 10px; /* Optional: add rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow */
+    }
+
+    .section {
+      display: flex; 
+      min-height: 80vh;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section > * {
+      width: 50%; 
+    }
+
+    .section-img {
+      position: relative;
+      display: flex;
+    }
+
+    .section-img-inner {
+      height: 100vh;
+      position: fixed;
+      left: 10%;
+      width: 40%;
+      top: 0;
+      mix-blend-mode: multiply;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      filter: blur(30px);
+      opacity: 0;
+      background-position: 50% 40%;
+      transition: .6s ease, opacity .6s ease, background-position .8s ease;
+    }
+
+    .section-body {
+      display: flex;
+      align-items: center;
+    }
+
+    .section-text {
+      color: white;
+      padding: 5vw;
+    }
+
+    .section.active .section-img-inner {
+      opacity: 1;
+      background-position: 50% 50%;
+      filter: blur(0);
+    }
+
+    h2 {
+      font-size: 3vw;
+      margin-bottom: 0.5em;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container"> <!-- Scrollable container -->
+  <div class="section">
+    <div class="section-img">
+      <div class="section-img-inner" style="background-image: url(1.jpeg);"></div>
+    </div>
+    <div class="section-body">
+      <div class="section-text">
+        <h2>ADIDAS PREDATOR 20+</h2>
+        <p>
+          The mutation has begun people! And we cannot contain our excitement. 
+          The Adidas Mutator pack comprises of the Mutator versions of the Adidas X, Copa, Nemeziz and Predator football shoes; so
+          you can establish yourself as a game changer on the football pitch.  
+          Designed for the control towers, The adidas Predator Shoe is an absolute beast. 
+          Featuring the infamous adidas Demonskin, a set of contoured rubber spikes that enhance your ball control and accuracy.
+          The Control Frame outsole provides greater energy-return to keep you in control of the game. 
+        </p>   
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-img">
+      <div class="section-img-inner" style="background-image: url(2.jpeg);"></div>
+    </div>
+    <div class="section-body">
+      <div class="section-text">
+        <h2>ADIDAS COPA 20+</h2>
+        <p>
+          The adidas Copa 20 Football Shoe is designed for players of elegance. If you enjoy the company of the ball and want to
+          feel each and every touch throughout your body – The Copa is the boot for you.
+          The adidas Fusionskin is a new take on leather technology. The upper is ribbed, seamless and perfectly aligns with the
+          shape of the foot for a more natural feel which results in a delightful, cushioned touch of the ball.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+    $(document).ready(function() {
+      let $container = $('.container'), // Target the container scroll
+          $body = $('body'),
+          $section = $('.section');
+      
+      $container.on('scroll', function() {
+        let scroll = $container.scrollTop() + ($container.height() / 3); // Use container scrollTop
+
+        $section.each(function() {
+          if ($(this).position().top <= scroll && $(this).position().top + $(this).height() > scroll) {
+            $body.removeClass(function(index, css) {
+              return (css.match(/(^|\s)color-\s+/g) || []).join(' ');
+            });
+            $('.section').removeClass('active');
+            $(this).addClass('active');
+          }
+        });
+      }).scroll();
+    });
+</script>
+
+</body>
+</html>
