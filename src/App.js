@@ -3,7 +3,6 @@ import './App.css';
 import Footer from './footer';
 import P1ScrollText from './P1scrolltext'; // ScrollText for grid 1
 import P2ScrollText from './P2scrolltext'; // ScrollText for grid 2
-import P3ScrollText from './P3scrolltext'; // ScrollText for grid 3
 import P4ScrollText from './P4scrolltext'; // ScrollText for grid 4
 import ImageCarousel from './P1ImageCarousel'; // Carousel component for grid 1
 import ImageCarousel2 from './P2ImageCarousel'; // Carousel component for grid 2
@@ -13,34 +12,61 @@ import grid1 from './Assets/Grid/grid1.jpeg';
 import grid2 from './Assets/Grid/grid2.jpeg';
 import grid3 from './Assets/Grid/grid3.jpeg';
 import grid4 from './Assets/Grid/grid4.jpeg';
+import UnderstandPart from './p3Understand'; // Corrected import
+import SecondaryPart from './p3Secondary';
+import IdeatePart from './p3IdeatePart';
+import ProtoPart from './p3ProtoPart';
+import TestPart from './p3TestPart';
+import FinancialPart from './p3FinancialPart';
 
 function App() {
   const [activeCarousel, setActiveCarousel] = useState(null); // State for active carousel
-  const containerRef = useRef(null);
   const [isContainerVisible, setIsContainerVisible] = useState(false);
+  const [activePart, setActivePart] = useState(null); // State for active part (e.g., 'Understand')
+
+  const carouselRefs = [useRef(null), useRef(null), useRef(null), useRef(null)]; // Refs for each carousel
+  const linkedInUrl = "https://www.linkedin.com/in/himanshi-jain-92098b2a0";
+  const behanceUrl = "https://www.behance.net/himanshijain14";
+  const email = "himanshi.neeta@gmail.com";
+
+  const handleLinkedInClick = () => {
+    window.open(linkedInUrl, '_blank'); // Opens the LinkedIn link in a new tab
+  };
+
+  const handleBehanceClick = () => {
+    window.open(behanceUrl, '_blank'); // Opens the Behance link in a new tab
+  };
+
+  const handleEmailClick = () => {
+    navigator.clipboard.writeText(email); // Copies the email to the clipboard
+    alert("Email Id copied!"); // Optional: Displays an alert confirming the copy
+  };
 
   const handleImageClick = (gridIndex) => {
-    if (activeCarousel === gridIndex) {
-      setActiveCarousel(null);
-    } else {
-      setActiveCarousel(gridIndex);
-    }
+    setActiveCarousel(gridIndex);
 
-    if (containerRef.current) {
-      setTimeout(() => {
-        window.scrollTo({ top: 3000, behavior: 'smooth' });
-      }, 100);
-    }
+    // Scroll to the respective carousel after the state updates
+    setTimeout(() => {
+      if (carouselRefs[gridIndex - 1].current) {
+        carouselRefs[gridIndex - 1].current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }, 100);
   };
 
   const handleReadMoreClick = () => {
+    // Toggle visibility of the container (if needed)
     setIsContainerVisible(!isContainerVisible);
-
-    if (!isContainerVisible && containerRef.current) {
-      setTimeout(() => {
-        window.scrollTo({ top: 3000, behavior: 'smooth' });
-      }, 100);
-    }
+  
+    // Scroll down slightly when "Read More" is pressed
+    setTimeout(() => {
+      window.scrollBy({
+        top: 500, // Adjust the value to scroll down more or less
+        behavior: 'smooth',
+      });
+    }, 100); // Delay to ensure smooth transition
   };
 
   const hideGallery = () => {
@@ -49,6 +75,19 @@ function App() {
 
   const hidecarousal = () => {
     setActiveCarousel(null);
+  };
+
+  const handleCircleClick = (section) => {
+   // Update state to display the relevant part
+  setActivePart(section);
+
+  // Scroll down slightly after the state has been updated
+  setTimeout(() => {
+    window.scrollBy({
+      top: 200, // Adjust the value to scroll down more or less
+      behavior: 'smooth',
+    });
+  }, 100); // Delay to ensure smooth transition
   };
 
   const [scrollY, setScrollY] = useState(0);
@@ -65,7 +104,7 @@ function App() {
   return (
     <div className="website">
       <div className="first-page">
-        <div className={`homepage ${scrollY > 50 ? 'scroll-out' : ''}`}>
+        <div className={`homepage ${scrollY > 5 ? 'scroll-out' : ''}`}>
           <div className="header-section" style={{ cursor: 'pointer' }}>
             <h1>HIMANSHI JAIN</h1>
             <p>Product Designer</p>
@@ -73,7 +112,7 @@ function App() {
           <div className="text-section">
             <h1>ABOUT <span>ME</span></h1>
             <p>
-              As a <span>product designer</span>, I focus on understanding human behavior and emotions. Great design is about empathy, understanding, and communication. I use human-centered principles to create solutions that solve problems and bring joy and comfort. Whether designing furniture, lighting, or games, I aim to make experiences that resonate with people. I love projects that involve research, exploring materials, and continuous prototyping to help users and bring smiles to their faces.
+              As a <span>product designer</span>, I focus on understanding human behavior and emotions. Great design is about empathy, understanding, and communication. I use human-centered principles to create solutions that solve problems and bring joy and comfort. Whether designing furniture, lighting, or games, I aim to make experiences that resonate with people.
             </p>
           </div>
         </div>
@@ -103,7 +142,7 @@ function App() {
 
       {/* Show the appropriate carousel based on the active grid */}
       {activeCarousel === 1 && (
-        <div className="carousal">
+        <div ref={carouselRefs[0]} className="carousal">
           <h1>Eco Sustainable Lounge Chair</h1>
           <ImageCarousel />
           <div className="read-more-container">
@@ -113,7 +152,7 @@ function App() {
       )}
 
       {activeCarousel === 2 && (
-        <div className="carousal">
+        <div ref={carouselRefs[1]} className="carousal">
           <h1>Infinity (Multifunctional Bookshelf)</h1>
           <ImageCarousel2 />
           <div className="read-more-container">
@@ -123,17 +162,19 @@ function App() {
       )}
 
       {activeCarousel === 3 && (
-        <div className="carousal">
+        <div ref={carouselRefs[2]} className="carousal">
           <h1>VoiceBook</h1>
           <ImageCarousel3 />
           <div className="read-more-container">
             <button className="read-more-btn" onClick={handleReadMoreClick}>Read More</button>
           </div>
+
+          {/* Render Process Circles */}
         </div>
       )}
 
       {activeCarousel === 4 && (
-        <div className="carousal">
+        <div ref={carouselRefs[3]} className="carousal">
           <h1>Jenga Together</h1>
           <ImageCarousel4 />
           <div className="read-more-container">
@@ -145,23 +186,61 @@ function App() {
       {/* Render ScrollText based on activeCarousel */}
       {activeCarousel === 1 && <P1ScrollText isContainerVisible={isContainerVisible} hideGallery={hideGallery} />}
       {activeCarousel === 2 && <P2ScrollText isContainerVisible={isContainerVisible} hideGallery={hideGallery} />}
-      {activeCarousel === 3 && <P3ScrollText isContainerVisible={isContainerVisible} hideGallery={hideGallery} />}
       {activeCarousel === 4 && <P4ScrollText isContainerVisible={isContainerVisible} hideGallery={hideGallery} />}
+      {activeCarousel === 3 && isContainerVisible && (
+            <div className="process-section">
+              <h1>Process</h1>
+              <div className="process-circles">
+                <div className="process-circle" onClick={() => handleCircleClick('Understand')}>
+                  Understand
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClick('Secondary Research')}>
+                  Secondary Research
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClick('Primary Research')}>
+                  Primary Research
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClick('Empathise')}>
+                  Empathise
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClick('Ideate')}>
+                  Ideate
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClick('Design/Prototype')}>
+                  Design/Prototype
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClick('Test & Learn')}>
+                  Test & Learn
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClick('Financial Planning')}>
+                  Financial Planning
+                </div>
+              </div>
+
+              {/* Display the corresponding component based on the clicked circle */}
+              {activePart === 'Understand' && <UnderstandPart />}
+              {activePart === 'Secondary Research' && <SecondaryPart/>}
+              {activePart === 'Ideate' && <IdeatePart/>}
+              {activePart === 'Design/Prototype' && <ProtoPart/>}
+              {activePart === 'Test & Learn' && <TestPart/>}
+              {activePart === 'Financial Planning' && <FinancialPart/>}
+            </div>
+          )}
 
       <div className="last-page">
         <div className="contact">
           <h2>Let's Connect</h2>
           <p>Connect on social media!</p>
           <div className="button-container">
-            <button className="social-button">LinkedIn</button>
-            <button className="social-button">Behance</button>
-            <button className="email-button">Get Email Id</button>
+            <button className="social-button" onClick={handleLinkedInClick}>LinkedIn</button>
+            <button className="social-button" onClick={handleBehanceClick}>Behance</button>
+            <button className="email-button" onClick={handleEmailClick}>Get Email Id</button>
           </div>
         </div>
       </div>
 
       <Footer hideGallery={hideGallery} hidecarousal={hidecarousal} />
-      </div>
+    </div>
   );
 }
 

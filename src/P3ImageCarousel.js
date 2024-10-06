@@ -1,13 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import './App.css'; // Import the CSS file for consistency
-import p2s1 from './Assets/Project2/Slider/slider1.jpeg';
-import p2s2 from './Assets/Project2/Slider/slider2.jpeg';
-import p2s3 from './Assets/Project2/Slider/slider3.jpeg';
-import p2s4 from './Assets/Project2/Slider/slider4.jpeg';
+import p3s1 from './Assets/Project3/slider/mockup 0.png';
+import p3s2 from './Assets/Project3/slider/mockup 1.png';
+import p3s3 from './Assets/Project3/slider/mockup 2.png';
+import p3s4 from './Assets/Project3/slider/mockup 3.png';
+import p3s5 from './Assets/Project3/slider/mockup 4.png';
+import p3s6 from './Assets/Project3/slider/mockup 5.png';
 
 const ImageCarousel2 = () => {
-  const images = [p2s1, p2s2, p2s3, p2s4 ]; // Use imported images instead of URLs
+  const images = [p3s1,p3s2,p3s3,p3s4,p3s5,p3s6]; // Use imported images instead of URLs
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const imageRef = useRef();
