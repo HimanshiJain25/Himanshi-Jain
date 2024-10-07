@@ -1,23 +1,24 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
-import Footer from './footer';
-import P1ScrollText from './P1scrolltext'; // ScrollText for grid 1
-import P2ScrollText from './P2scrolltext'; // ScrollText for grid 2
-import P4ScrollText from './P4scrolltext'; // ScrollText for grid 4
-import ImageCarousel from './P1ImageCarousel'; // Carousel component for grid 1
-import ImageCarousel2 from './P2ImageCarousel'; // Carousel component for grid 2
-import ImageCarousel3 from './P3ImageCarousel'; // Carousel component for grid 3
-import ImageCarousel4 from './P4ImageCarousel'; // Carousel component for grid 4
-import grid1 from './Assets/Grid/grid1.jpeg';
-import grid2 from './Assets/Grid/grid2.jpeg';
-import grid3 from './Assets/Grid/grid3.jpeg';
-import grid4 from './Assets/Grid/grid4.jpeg';
-import UnderstandPart from './p3Understand'; // Corrected import
-import SecondaryPart from './p3Secondary';
-import IdeatePart from './p3IdeatePart';
-import ProtoPart from './p3ProtoPart';
-import TestPart from './p3TestPart';
-import FinancialPart from './p3FinancialPart';
+import Footer from './components/pages/Footer/Footer';
+import P1ScrollText from './components/pages/ScrollText/P1ScrollText'; // ScrollText for grid 1
+import P2ScrollText from './components/pages/ScrollText/P1ScrollText'; // ScrollText for grid 2
+import P4ScrollText from './components/pages/ScrollText/P4ScrollText'; // ScrollText for grid 4
+import ImageCarousel from './components/pages/ImageCarousal/P1ImageCarousel'; // Carousel component for grid 1
+import ImageCarousel2 from './components/pages/ImageCarousal/P2ImageCarousel'; // Carousel component for grid 2
+import ImageCarousel3 from './components/pages/ImageCarousal/P3ImageCarousel'; // Carousel component for grid 3
+import ImageCarousel4 from './components/pages/ImageCarousal/P4ImageCarousel'; // Carousel component for grid 4
+import grid1 from './components/Assets/Grid/grid1.jpeg';
+import grid2 from './components/Assets/Grid/grid2.jpeg';
+import grid3 from './components/Assets/Grid/grid3.jpeg';
+import grid4 from './components/Assets/Grid/grid4.jpeg';
+import UnderstandPart from './components/pages/VoiceBox/p3Understand'; // Corrected import
+import SecondaryPart from './components/pages/VoiceBox/p3Secondary';
+import PrimaryPart from './components/pages/VoiceBox/P3Primary';
+import IdeatePart from './components/pages/VoiceBox/p3IdeatePart';
+import ProtoPart from './components/pages/VoiceBox/p3ProtoPart';
+import TestPart from './components/pages/VoiceBox/p3TestPart';
+import FinancialPart from './components/pages/VoiceBox/p3FinancialPart';
 
 function App() {
   const [activeCarousel, setActiveCarousel] = useState(null); // State for active carousel
@@ -44,6 +45,8 @@ function App() {
 
   const handleImageClick = (gridIndex) => {
     setActiveCarousel(gridIndex);
+    
+    hideGallery(); // Hides the carousel
 
     // Scroll to the respective carousel after the state updates
     setTimeout(() => {
@@ -117,6 +120,7 @@ function App() {
           </div>
         </div>
 
+        <div className='spacer'></div>
         {/* Image Grid */}
         <div className="image-grid-page">
           <div className="image-grid">
@@ -219,8 +223,10 @@ function App() {
 
               {/* Display the corresponding component based on the clicked circle */}
               {activePart === 'Understand' && <UnderstandPart />}
+              {activePart === 'Primary Research' && <PrimaryPart/>}
               {activePart === 'Secondary Research' && <SecondaryPart/>}
               {activePart === 'Ideate' && <IdeatePart/>}
+              {activePart === 'Empathise' && <PrimaryPart/>}
               {activePart === 'Design/Prototype' && <ProtoPart/>}
               {activePart === 'Test & Learn' && <TestPart/>}
               {activePart === 'Financial Planning' && <FinancialPart/>}
@@ -228,6 +234,8 @@ function App() {
           )}
 
       <div className="last-page">
+      <h1 className="Connect-bg">CONNECT</h1>
+
         <div className="contact">
           <h2>Let's Connect</h2>
           <p>Connect on social media!</p>

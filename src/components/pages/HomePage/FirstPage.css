@@ -1,0 +1,137 @@
+/* About Me Page (first-page and homepage) */
+.first-page {
+	position: relative;
+	height: 110vh; /* Full viewport height */
+	overflow-x: hidden;
+	
+	overflow-y: hidden;
+  }
+  
+  .homepage {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.808);
+	padding: 0;
+	transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .homepage.scroll-out {
+	transform: translateY(-100%);
+	opacity: 0;
+  }
+  
+  .header-section {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .header-section h1 {
+	font-size: 6rem;
+	font-family: 'Bebas Neue', sans-serif;
+	color: #ffac44;
+	margin: 0;
+	letter-spacing: 2px;
+  }
+  
+  .header-section p {
+	font-size: 2rem;
+	margin: 0;
+	color: #cfcfcf;
+  }
+  
+  .text-section {
+	flex: 1;
+	padding: 20px;
+  }
+  
+  .text-section h1 {
+	font-size: 5rem;
+	margin: 0;
+	font-family: 'Bebas Neue', sans-serif;
+	color: #ffffff;
+	letter-spacing: 2px;
+  }
+  
+  .text-section h1 span {
+	color: #ffac44;
+  }
+  
+  .text-section p {
+	font-size: 1.1rem;
+	line-height: 1.8;
+	margin-top: 20px;
+	color: #cfcfcf;
+  }
+  
+
+  .spacer{
+	height: 70px;
+	background-color: black;
+  }
+
+  /* Image Grid styling */
+  .image-grid-page {
+	position: relative;
+	z-index: 1;
+  }
+  
+  .image-grid {
+	position: sticky; /* Sticky behavior */
+	top: 0; /* Pins the image grid to the top of the viewport */
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	gap: 10px;
+	height: 100vh; /* Full height */
+	z-index: 3; /* Ensures it's above other content */
+  }
+  
+  .image-item {
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	z-index: 2;
+  }
+  
+  .image-item img {
+	width: 100%;
+	height: auto;
+	transition: opacity 0.3s ease;
+  }
+  
+  .image-item:hover img {
+	opacity: 0.6;
+  }
+  
+  .image-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: #ffac44;
+	text-align: center;
+	padding: 10px;
+	font-size: 2rem;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+  }
+  
+  .image-item:hover .image-title {
+	opacity: 0.8;
+  }
+  

@@ -1,0 +1,122 @@
+
+.process-section {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .process-section h1{
+    font-family: 'Lato', sans-serif;
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+  }
+  
+  .process-circles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+    position: relative;
+  }
+  
+  .process-circle {
+    background-color: Transparent;
+    color: white;
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s;
+    z-index: 1; /* Ensure circle is on top of arrow */
+  }
+  
+  .process-circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -15px; /* Adjust the distance to the next circle */
+    transform: translateY(-50%);
+    border: solid white;
+    border-width: 0 3px 3px 0; /* Create a smaller arrow */
+    display: inline-block;
+    padding: 3px; /* Smaller padding for a smaller arrow */
+    transform: rotate(-45deg);
+  }
+  
+  .process-circle:last-child::after {
+    content: none; /* No arrow after the last circle */
+  }
+  
+  .process-circle:hover {
+    transform: scale(1.1);
+    color: #ffac44;
+  }
+  
+  
+
+.Primary-container, .Understand-container,.secondaryPart-container,
+.ideatePart-container,.prototype-container,
+.testPart-container, .financialPart-container {
+    padding-top: 50px;
+}
+
+.Primary-container h1,.understand-container h1,.secondaryPart-container h1,
+.ideatePart-container h1, .prototype-container h1,
+.testPart-container h1, .financialPart-container h1
+ {
+    font-family: 'Lato', sans-serif;
+    font-size: 5rem;
+    
+    color: #ffac44;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.understand-container p,.secondaryPart-container p,
+.ideatePart-container p,.prototype-container p,
+.testPart-container p, .financialPart-container p
+{
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.Primary-images-grid, .understand-images-grid, .secondary-images-grid,
+.ideatePart-images-grid, .testPart-images-grid,
+.financialPart-images-grid, .prototype-images-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px; /* Space between images */
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.understand-grid-image,.Primary-grid-image, .secondary-grid-image,
+.ideatePart-grid-image, .financialPart-grid-image, 
+.testPart-grid-image, .prototype-grid-image 
+{
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+    border-radius: 10px; /* Optional: add some rounding to the images */
+}
+
+
+
+.secondary-grid-image:nth-child(7),
+.testPart-grid-image:nth-child(19),
+.financialPart-grid-image:nth-child(11) {
+    grid-column: 1 / -1; /* Span across both columns */
+}  
