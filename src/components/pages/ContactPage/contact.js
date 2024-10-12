@@ -42,7 +42,7 @@ function Contact() {
       <h1 className="Connect-bg" ref={connectRef}>CONNECT</h1>
       <div className="contact">
         <h2>Let's Connect</h2>
-        <p>Connect on social media!</p>
+        <p>on social media!</p>
         <div className="button-container">
           <button className="social-button">LinkedIn</button>
           <button className="social-button">Behance</button>

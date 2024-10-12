@@ -10,7 +10,7 @@ import ImageCarousel3 from './components/pages/ImageCarousal/P3ImageCarousel'; /
 import ImageCarousel4 from './components/pages/ImageCarousal/P4ImageCarousel'; // Carousel component for grid 4
 import grid1 from './components/Assets/Grid/grid1.jpeg';
 import grid2 from './components/Assets/Grid/grid2.jpeg';
-import grid3 from './components/Assets/Grid/grid3.jpeg';
+import grid3 from './components/Assets/Grid/grid3.png';
 import grid4 from './components/Assets/Grid/grid4.jpeg';
 import UnderstandPart from './components/pages/VoiceBox/p3Understand'; // Corrected import
 import SecondaryPart from './components/pages/VoiceBox/p3Secondary';
@@ -22,6 +22,7 @@ import FinancialPart from './components/pages/VoiceBox/p3FinancialPart';
 
 function App() {
   const [activeCarousel, setActiveCarousel] = useState(null); // State for active carousel
+  const [activeCarouselbtn, setActiveCarouselbtn] = useState(null); // State for active carousel
   const [isContainerVisible, setIsContainerVisible] = useState(false);
   const [activePart, setActivePart] = useState(null); // State for active part (e.g., 'Understand')
 
@@ -83,6 +84,7 @@ function App() {
   const handleCircleClick = (section) => {
    // Update state to display the relevant part
   setActivePart(section);
+  setActiveCarouselbtn(section)
 
   // Scroll down slightly after the state has been updated
   setTimeout(() => {
@@ -92,6 +94,16 @@ function App() {
     });
   }, 100); // Delay to ensure smooth transition
   };
+
+
+  const handleCircleClickbtm = (section) => {
+    // Update state to display the relevant part
+   setActivePart(section);
+ 
+   // Scroll down slightly after the state has been updated
+   setTimeout(() => {
+    window.scrollTo({ top: 2200, behavior: 'smooth' });}); // Delay to ensure smooth transition
+   };
 
   const [scrollY, setScrollY] = useState(0);
 
@@ -191,6 +203,7 @@ function App() {
       {activeCarousel === 1 && <P1ScrollText isContainerVisible={isContainerVisible} hideGallery={hideGallery} />}
       {activeCarousel === 2 && <P2ScrollText isContainerVisible={isContainerVisible} hideGallery={hideGallery} />}
       {activeCarousel === 4 && <P4ScrollText isContainerVisible={isContainerVisible} hideGallery={hideGallery} />}
+
       {activeCarousel === 3 && isContainerVisible && (
             <div className="process-section">
               <h1>Process</h1>
@@ -202,11 +215,9 @@ function App() {
                   Secondary Research
                 </div>
                 <div className="process-circle" onClick={() => handleCircleClick('Primary Research')}>
-                  Primary Research
+                  Primary Research & Empathise
                 </div>
-                <div className="process-circle" onClick={() => handleCircleClick('Empathise')}>
-                  Empathise
-                </div>
+                
                 <div className="process-circle" onClick={() => handleCircleClick('Ideate')}>
                   Ideate
                 </div>
@@ -226,19 +237,51 @@ function App() {
               {activePart === 'Primary Research' && <PrimaryPart/>}
               {activePart === 'Secondary Research' && <SecondaryPart/>}
               {activePart === 'Ideate' && <IdeatePart/>}
-              {activePart === 'Empathise' && <PrimaryPart/>}
               {activePart === 'Design/Prototype' && <ProtoPart/>}
               {activePart === 'Test & Learn' && <TestPart/>}
               {activePart === 'Financial Planning' && <FinancialPart/>}
             </div>
           )}
 
+
+{activeCarouselbtn && isContainerVisible && (
+            <div className="process-section">
+              <h1></h1>
+              <div className="process-circles">
+                <div className="process-circle" onClick={() => handleCircleClickbtm('Understand')}>
+                  Understand
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClickbtm('Secondary Research')}>
+                  Secondary Research
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClickbtm('Primary Research')}>
+                  Primary Research & Empathise
+                </div>
+
+                <div className="process-circle" onClick={() => handleCircleClickbtm('Ideate')}>
+                  Ideate
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClickbtm('Design/Prototype')}>
+                  Design/Prototype
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClickbtm('Test & Learn')}>
+                  Test & Learn
+                </div>
+                <div className="process-circle" onClick={() => handleCircleClickbtm('Financial Planning')}>
+                  Financial Planning
+                </div>
+              </div>
+
+            </div>
+          )}
+          
+
       <div className="last-page">
       <h1 className="Connect-bg">CONNECT</h1>
 
         <div className="contact">
           <h2>Let's Connect</h2>
-          <p>Connect on social media!</p>
+          <p>on social media!</p>
           <div className="button-container">
             <button className="social-button" onClick={handleLinkedInClick}>LinkedIn</button>
             <button className="social-button" onClick={handleBehanceClick}>Behance</button>

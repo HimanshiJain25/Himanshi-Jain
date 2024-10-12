@@ -1,8 +1,8 @@
 /* Carousel styling */
 .carousel-container {
     position: relative;
-    width: 1200px; /* Increased width */
-    height: 600px; /* Increased height */
+    width: 960px; /* Increased width */
+    height: 540px; /* Increased height */
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -100,7 +100,7 @@
   
 .carousal h1 {
     font-family: 'Lato', sans-serif;
-    margin-top: 10px;
+    margin-top: 50px;
     margin-bottom: 30px;
     font-size: 3rem;
 }

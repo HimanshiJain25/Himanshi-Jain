@@ -115,8 +115,8 @@
 
 
 
-.secondary-grid-image:nth-child(7),
+/* .secondary-grid-image:nth-child(7),
 .testPart-grid-image:nth-child(19),
 .financialPart-grid-image:nth-child(11) {
-    grid-column: 1 / -1; /* Span across both columns */
-}  
+    grid-column: 1 / -1; 
+}   */

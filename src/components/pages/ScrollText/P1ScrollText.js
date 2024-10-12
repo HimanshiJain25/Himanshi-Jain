@@ -76,8 +76,14 @@ const P1ScrollText = ({ isContainerVisible }) => {
               <p>{text}</p>
             </div>
           ))}
-        </div>
+          
+          <div className="scroll-to-top" >
+        ↑
       </div>
+        </div>
+        
+      </div>
+      
     )
   );
 };

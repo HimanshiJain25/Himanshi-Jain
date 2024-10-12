@@ -79,13 +79,13 @@
 	background-color: black;
   }
 
-  /* Image Grid styling */
-  .image-grid-page {
+/* Image Grid styling */
+.image-grid-page {
 	position: relative;
 	z-index: 1;
-  }
-  
-  .image-grid {
+}
+
+.image-grid {
 	position: sticky; /* Sticky behavior */
 	top: 0; /* Pins the image grid to the top of the viewport */
 	display: grid;
@@ -94,26 +94,26 @@
 	gap: 10px;
 	height: 100vh; /* Full height */
 	z-index: 3; /* Ensures it's above other content */
-  }
-  
-  .image-item {
+}
+
+.image-item {
 	position: relative;
 	overflow: hidden;
 	cursor: pointer;
 	z-index: 2;
-  }
-  
-  .image-item img {
+}
+
+.image-item img {
 	width: 100%;
-	height: auto;
+	height: 100%;
 	transition: opacity 0.3s ease;
-  }
-  
-  .image-item:hover img {
+}
+
+.image-item:hover img {
 	opacity: 0.6;
-  }
-  
-  .image-title {
+}
+
+.image-title {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -129,9 +129,8 @@
 	font-size: 2rem;
 	opacity: 0;
 	transition: opacity 0.3s ease;
-  }
-  
-  .image-item:hover .image-title {
+}
+
+.image-item:hover .image-title {
 	opacity: 0.8;
-  }
-  
+}
