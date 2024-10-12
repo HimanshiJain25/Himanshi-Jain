@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Himanshi-Jain/static/css/main.027e37be.css",
-    "main.js": "/Himanshi-Jain/static/js/main.881b45e1.js",
+    "main.css": "/Himanshi-Jain/static/css/main.eead65d7.css",
+    "main.js": "/Himanshi-Jain/static/js/main.76390e32.js",
     "static/js/453.8f3d7608.chunk.js": "/Himanshi-Jain/static/js/453.8f3d7608.chunk.js",
     "static/media/mockup 1.png": "/Himanshi-Jain/static/media/mockup 1.48b37c51bf7b9d88f485.png",
     "static/media/mockup 4.png": "/Himanshi-Jain/static/media/mockup 4.a9580fa751a58afb7c48.png",
@@ -10,6 +10,7 @@
     "static/media/mockup 2.png": "/Himanshi-Jain/static/media/mockup 2.cbeb5d7772cf23681609.png",
     "static/media/primary research 14.png": "/Himanshi-Jain/static/media/primary research 14.89f57a408ceeb66bd894.png",
     "static/media/primary research 15.png": "/Himanshi-Jain/static/media/primary research 15.c28c599a8f7691285908.png",
+    "static/media/grid3.png": "/Himanshi-Jain/static/media/grid3.33534a7da87170ee690f.png",
     "static/media/ideation 6.png": "/Himanshi-Jain/static/media/ideation 6.1228722c3f27e164718b.png",
     "static/media/proto 8.png": "/Himanshi-Jain/static/media/proto 8.e7ef66989dc560be3c1b.png",
     "static/media/primary research 10.png": "/Himanshi-Jain/static/media/primary research 10.d45adf9bd4f9175abb93.png",
@@ -48,7 +49,6 @@
     "static/media/proto 1.png": "/Himanshi-Jain/static/media/proto 1.f1ca877ce927125dff99.png",
     "static/media/test & learn 14.png": "/Himanshi-Jain/static/media/test & learn 14.753b6b446f0d6143f2db.png",
     "static/media/primary research 3.png": "/Himanshi-Jain/static/media/primary research 3.469bf688003bf825a055.png",
-    "static/media/grid3.jpeg": "/Himanshi-Jain/static/media/grid3.3035e170ac8be1e2f2ba.jpeg",
     "static/media/ideation 2.png": "/Himanshi-Jain/static/media/ideation 2.afe2a83d5d1aec5f0f7d.png",
     "static/media/test & learn 11.png": "/Himanshi-Jain/static/media/test & learn 11.07238b6c276cf7dd8634.png",
     "static/media/test & learn 1.png": "/Himanshi-Jain/static/media/test & learn 1.65398ccd127f87755b74.png",
@@ -109,12 +109,12 @@
     "static/media/8.jpeg": "/Himanshi-Jain/static/media/8.b1b4aaeb91048b160cca.jpeg",
     "static/media/test & learn 15.png": "/Himanshi-Jain/static/media/test & learn 15.a01826ae9d67ad545cc8.png",
     "index.html": "/Himanshi-Jain/index.html",
-    "main.027e37be.css.map": "/Himanshi-Jain/static/css/main.027e37be.css.map",
-    "main.881b45e1.js.map": "/Himanshi-Jain/static/js/main.881b45e1.js.map",
+    "main.eead65d7.css.map": "/Himanshi-Jain/static/css/main.eead65d7.css.map",
+    "main.76390e32.js.map": "/Himanshi-Jain/static/js/main.76390e32.js.map",
     "453.8f3d7608.chunk.js.map": "/Himanshi-Jain/static/js/453.8f3d7608.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.027e37be.css",
-    "static/js/main.881b45e1.js"
+    "static/css/main.eead65d7.css",
+    "static/js/main.76390e32.js"
   ]
 }
