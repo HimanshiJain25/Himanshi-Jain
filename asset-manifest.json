@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Himanshi-Jain/static/css/main.5f4f8306.css",
-    "main.js": "/Himanshi-Jain/static/js/main.26b2ab95.js",
+    "main.js": "/Himanshi-Jain/static/js/main.7a6dfcae.js",
     "static/js/453.8f3d7608.chunk.js": "/Himanshi-Jain/static/js/453.8f3d7608.chunk.js",
     "static/media/mockup 1.png": "/Himanshi-Jain/static/media/mockup 1.48b37c51bf7b9d88f485.png",
     "static/media/mockup 4.png": "/Himanshi-Jain/static/media/mockup 4.a9580fa751a58afb7c48.png",
@@ -112,11 +112,11 @@
     "static/media/test & learn 15.png": "/Himanshi-Jain/static/media/test & learn 15.a01826ae9d67ad545cc8.png",
     "index.html": "/Himanshi-Jain/index.html",
     "main.5f4f8306.css.map": "/Himanshi-Jain/static/css/main.5f4f8306.css.map",
-    "main.26b2ab95.js.map": "/Himanshi-Jain/static/js/main.26b2ab95.js.map",
+    "main.7a6dfcae.js.map": "/Himanshi-Jain/static/js/main.7a6dfcae.js.map",
     "453.8f3d7608.chunk.js.map": "/Himanshi-Jain/static/js/453.8f3d7608.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5f4f8306.css",
-    "static/js/main.26b2ab95.js"
+    "static/js/main.7a6dfcae.js"
   ]
 }
