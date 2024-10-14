@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import Footer from './components/pages/Footer/Footer';
 import P1ScrollText from './components/pages/ScrollText/P1ScrollText'; // ScrollText for grid 1
-import P2ScrollText from './components/pages/ScrollText/P1ScrollText'; // ScrollText for grid 2
+import P2ScrollText from './components/pages/ScrollText/P2ScrollText'; // ScrollText for grid 2
 import P4ScrollText from './components/pages/ScrollText/P4ScrollText'; // ScrollText for grid 4
 import ImageCarousel from './components/pages/ImageCarousal/P1ImageCarousel'; // Carousel component for grid 1
 import ImageCarousel2 from './components/pages/ImageCarousal/P2ImageCarousel'; // Carousel component for grid 2
@@ -244,7 +244,7 @@ function App() {
           )}
 
 
-{activeCarouselbtn && isContainerVisible && (
+{activeCarousel === 3 && activeCarouselbtn && isContainerVisible && (
             <div className="process-section">
               <h1></h1>
               <div className="process-circles">
