@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Himanshi-Jain/static/css/main.5ccbdeb0.css",
-    "main.js": "/Himanshi-Jain/static/js/main.b11e65c3.js",
+    "main.css": "/Himanshi-Jain/static/css/main.3b7e182e.css",
+    "main.js": "/Himanshi-Jain/static/js/main.d3091cd0.js",
     "static/js/453.8f3d7608.chunk.js": "/Himanshi-Jain/static/js/453.8f3d7608.chunk.js",
     "static/media/mockup 1.png": "/Himanshi-Jain/static/media/mockup 1.48b37c51bf7b9d88f485.png",
     "static/media/mockup 4.png": "/Himanshi-Jain/static/media/mockup 4.a9580fa751a58afb7c48.png",
@@ -111,12 +111,12 @@
     "static/media/fp7.png": "/Himanshi-Jain/static/media/fp7.d8df45f24e18e29502a9.png",
     "static/media/test & learn 15.png": "/Himanshi-Jain/static/media/test & learn 15.a01826ae9d67ad545cc8.png",
     "index.html": "/Himanshi-Jain/index.html",
-    "main.5ccbdeb0.css.map": "/Himanshi-Jain/static/css/main.5ccbdeb0.css.map",
-    "main.b11e65c3.js.map": "/Himanshi-Jain/static/js/main.b11e65c3.js.map",
+    "main.3b7e182e.css.map": "/Himanshi-Jain/static/css/main.3b7e182e.css.map",
+    "main.d3091cd0.js.map": "/Himanshi-Jain/static/js/main.d3091cd0.js.map",
     "453.8f3d7608.chunk.js.map": "/Himanshi-Jain/static/js/453.8f3d7608.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ccbdeb0.css",
-    "static/js/main.b11e65c3.js"
+    "static/css/main.3b7e182e.css",
+    "static/js/main.d3091cd0.js"
   ]
 }
