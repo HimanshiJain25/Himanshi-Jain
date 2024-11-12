@@ -1,116 +1,126 @@
-/* About Me Page (first-page and homepage) */
+/* Main Container for the first page */
 .first-page {
-	position: relative;
-	height: 110vh; /* Full viewport height */
-	overflow-x: hidden;
-	
-	overflow-y: hidden;
-  }
-  
-  .homepage {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 2;
-	height: 100vh;
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	background-color: rgba(0, 0, 0, 0.808);
-	padding: 0;
-	transition: transform 0.5s ease, opacity 0.5s ease;
-  }
-  
-  .homepage.scroll-out {
-	transform: translateY(-100%);
-	opacity: 0;
-  }
-  
-  .header-section {
-	flex: 1;
+	align-items: center;
+	height: 100vh;
+	overflow: hidden;
+}
+
+/* Homepage layout with two sections */
+.homepage {
+	display: flex;
+	width: 100vw; /* Full viewport width */
+	height: 100vh; /* Full viewport height */
+	justify-content: space-between;
+	align-items: stretch;
+	background-color: rgba(0, 0, 0, 0.808); /* Background overlay */
+	color: #fff;
+}
+
+/* Left section styling */
+.left-section {
+	background-color: #ffac44; /* Yellow background */
+	width: 50vw; /* Full half of the viewport width */
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 	justify-content: center;
-	align-items: center;
-  }
-  
-  .header-section h1 {
-	font-size: 6rem;
+	padding: 40px;
+	box-sizing: border-box; /* Include padding within width */
+}
+
+.left-section h1 {
+	font-size: 4rem;
 	font-family: 'Bebas Neue', sans-serif;
-	color: #ffac44;
+	color: black; /* Black text for contrast */
 	margin: 0;
 	letter-spacing: 2px;
-  }
-  
-  .header-section p {
-	font-size: 2rem;
+}
+
+.left-section p {
+	font-size: 1.5rem;
 	margin: 0;
-	color: #cfcfcf;
-  }
-  
-  .text-section {
-	flex: 1;
-	padding: 20px;
-  }
-  
-  .text-section h1 {
-	font-size: 5rem;
+	color: #333; /* Darker gray for better readability */
+}
+
+/* Right section styling */
+.right-section {
+	background-color: #000000; /* Black background */
+	width: 50vw; /* Full half of the viewport width */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 40px;
+	box-sizing: border-box; /* Include padding within width */
+}
+
+.right-section h1 {
+	font-size: 3rem;
 	margin: 0;
 	font-family: 'Bebas Neue', sans-serif;
-	color: #ffffff;
+	color: #ffffff; /* White text */
 	letter-spacing: 2px;
-  }
-  
-  .text-section h1 span {
-	color: #ffac44;
-  }
-  
-  .text-section p {
+}
+
+.right-section h1 span {
+	color: #ffac44; /* Yellow accent for highlighted text */
+}
+
+.right-section p {
 	font-size: 1.1rem;
 	line-height: 1.8;
-	margin-top: 20px;
-	color: #cfcfcf;
-  }
-  
+	color: #cfcfcf; /* Light gray text */
+	max-width: 500px;
+}
 
-  .spacer{
+.left-section, .right-section {
+	opacity: 0; /* Start hidden */
+	transform: translateX(0); /* Ensure no position offset initially */
+  }
+
+/* Spacer styling */
+.spacer {
 	height: 70px;
 	background-color: black;
-  }
+}
 
-/* Image Grid styling */
+/* Initial state of the image grid page */
 .image-grid-page {
 	position: relative;
 	z-index: 1;
+	width: 100vw; /* Ensures full width of viewport */
+	overflow-x: hidden; /* Prevents horizontal scroll */
+	padding: 0; /* Removes any extra padding */
+	margin: 0; /* Removes any extra margin */
 }
 
 .image-grid {
-	position: sticky; /* Sticky behavior */
-	top: 0; /* Pins the image grid to the top of the viewport */
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(2, 1fr);
 	gap: 10px;
-	height: 100vh; /* Full height */
-	z-index: 3; /* Ensures it's above other content */
+	width: 100vw; /* Full width of the viewport */
+	height: 100vh; /* Full height of the viewport */
 }
 
 .image-item {
 	position: relative;
 	overflow: hidden;
 	cursor: pointer;
-	z-index: 2;
+	transition: transform 0.3s ease;
 }
 
 .image-item img {
 	width: 100%;
 	height: 100%;
+	object-fit: cover;
 	transition: opacity 0.3s ease;
 }
 
 .image-item:hover img {
-	opacity: 0.6;
+	opacity: 0.7;
 }
 
 .image-title {
@@ -122,15 +132,22 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.6);
 	color: #ffac44;
 	text-align: center;
 	padding: 10px;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	opacity: 0;
 	transition: opacity 0.3s ease;
 }
 
 .image-item:hover .image-title {
-	opacity: 0.8;
+	opacity: 1;
+}
+
+/* Footer styling if needed */
+.footer {
+	padding: 20px;
+	text-align: center;
+	color: #cfcfcf;
 }

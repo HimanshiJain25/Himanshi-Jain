@@ -42,7 +42,10 @@ const P1ScrollText = ({ isContainerVisible }) => {
     }
   }, [isContainerVisible]);
 
-  const images = [p1i1, p1i2, p1i3, p1i4, p1i5, p1i6, p1i7, p1i8, p1i9, p1i10, p1i11, p1i12];
+  const images = [
+    p1i1, p1i2, p1i3, p1i4, p1i5, p1i6,
+    p1i7, p1i8, p1i9, p1i10, p1i11, p1i12,
+  ];
 
   const textContent = [
     "The research started by exploring the fundamental concept of a chair, examining various sitting positions, and identifying the most comfortable ones. This was followed by an analysis of average chair dimensions and an in-depth look at ergonomics, focusing on comfortable positions that accommodate the 5th to 95th percentile of the population. This ensures the design suits the vast majority of users, while also considering the need for specialized designs for outliers.",
@@ -51,39 +54,42 @@ const P1ScrollText = ({ isContainerVisible }) => {
     "After completing research, creating a moodboard, and understanding the objective and target audience, I began sketching various concepts for the eco-sustainable lounge chair. I explored different shapes, materials, and forms, focusing on creating a lightweight yet sturdy design. Each sketch aimed to balance comfort, functionality, and sustainability, considering the needs of modern homeowners, eco-conscious users, and public spaces like hotels and wellness centers. These sketches laid the groundwork for refining the final design.",
     "The materials chosen for this project, including triwall sheets and paper rods, were selected for their eco-friendly properties and structural integrity. The natural, uncolored appearance was intentionally left to highlight the raw, beautiful texture of the triwall sheets, enhancing the sustainability narrative while offering a minimalistic aesthetic. While Fevicol was used as a temporary adhesive, future iterations will explore more sustainable gluing options to further align with the eco-conscious objectives of the design.",
     "After sketching, the top 10 side views were selected based on the material I planned to use. While all the designs could be made in wood or metal, not all were suitable for construction with triwall sheets. This selection process ensured that the designs aligned with the material's properties.",
-    "From the top 10 side views, I narrowed it down to two designs: a lounge chair and a rocking chair. I then made 1/4 scale models of both to evaluate which one would work better.",  "After reviewing the 1/4 scale models, I chose the lounge chair because there was a slight risk of the rocking chair tilting due to the triwall sheet material. I then created a full-size cutout of the lounge chair's side view and tested it myself. During testing, I noticed that the chair might tip forward if a heavy person sat only on the front part. To prevent this, I adjusted the design, making the front more square-shaped to ensure the chair stays stable and secure.",
+    "From the top 10 side views, I narrowed it down to two designs: a lounge chair and a rocking chair. I then made 1/4 scale models of both to evaluate which one would work better.",
+    "After reviewing the 1/4 scale models, I chose the lounge chair because there was a slight risk of the rocking chair tilting due to the triwall sheet material. I then created a full-size cutout of the lounge chair's side view and tested it myself. During testing, I noticed that the chair might tip forward if a heavy person sat only on the front part. To prevent this, I adjusted the design, making the front more square-shaped to ensure the chair stays stable and secure.",
     "This design shows the measurements for a structure with three parts: left, center, and right. It is 34.7 inches tall and 69.3 inches wide. The angles, including 137 degrees, help the structure stay balanced. Each profile consists of 20 layers each, making the design strong and well-proportioned.",
     "I repurposed the leftover pieces from the chair by turning them into a side table and a shoe supporter. The remaining material was used for prototyping another project, ensuring that nothing went to waste.",
     "After completing the chair, I conducted extensive user testing, ensuring it could support a wide range of body types—from very thin individuals to those weighing up to 150kg. The chair proved durable and comfortable across all tests. It has also been showcased at various competitions, receiving positive feedback for its strength and design.",
-    "In future refinements, the design will feature a more three-dimensional appearance, explore additional sustainable materials, and include eco-friendly lamination and sustainable glue."];  
+    "In future refinements, the design will feature a more three-dimensional appearance, explore additional sustainable materials, and include eco-friendly lamination and sustainable glue."
+  ];
 
   return (
     isContainerVisible && (
-      <div className="gallery" ref={containerRef}>
-        <div className="leftblock">
-          <div className="photo-container">
-            {images.map((src, index) => (
-              <div className="photo" key={index}>
-                <img src={src} alt={`img-${index + 1}`} />
+      <>
+        <div className="gallery" ref={containerRef}>
+          <div className="leftblock">
+            <div className="photo-container">
+              {images.map((src, index) => (
+                <div className="photo" key={index}>
+                  <img src={src} alt={`img-${index + 1}`} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="right">
+            {textContent.map((text, index) => (
+              <div className="details" key={index}>
+                <p>{text}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="right">
-          {textContent.map((text, index) => (
-            <div className="details" key={index}>
-              <p>{text}</p>
-            </div>
-          ))}
-          
-          <div className="scroll-to-top" >
-        ↑
-      </div>
+        {/* Thank You Container */}
+        <div className="thank-you-container">
+          <p>Thank you</p>
         </div>
-        
-      </div>
-      
+      </>
     )
   );
 };

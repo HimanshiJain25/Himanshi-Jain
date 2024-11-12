@@ -1,14 +1,13 @@
 import React from 'react';
 import './Footer.css';
 
-function Footer({ hideGallery, hidecarousal }) {
+function Footer({ hideGallery, hidecarousal , gridRef}) {
   const scrollToPortfolio = () => {
-    // Scroll to the portfolio section
-    window.scrollTo({ top: 60, behavior: 'smooth' });
-
-    // Hide both the scroll text and the carousel
-    hideGallery(); // Hides the scroll text
-    hidecarousal(); // Hides the carousel
+    if (gridRef.current) {
+      gridRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    hideGallery();
+    hidecarousal();
   };
 
   const scrollToTop = () => {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
+import { gsap } from 'gsap';
 import Footer from './components/pages/Footer/Footer';
 import P1ScrollText from './components/pages/ScrollText/P1ScrollText'; // ScrollText for grid 1
 import P2ScrollText from './components/pages/ScrollText/P2ScrollText'; // ScrollText for grid 2
@@ -25,11 +26,34 @@ function App() {
   const [activeCarouselbtn, setActiveCarouselbtn] = useState(null); // State for active carousel
   const [isContainerVisible, setIsContainerVisible] = useState(false);
   const [activePart, setActivePart] = useState(null); // State for active part (e.g., 'Understand')
+  const gridRef = useRef(null);
+  const firstPageRef = useRef(null); // Reference for the first-page animation
+  const leftSectionRef = useRef(null); // Reference for left-section animation
+  const rightSectionRef = useRef(null); // Reference for right-section animation
 
   const carouselRefs = [useRef(null), useRef(null), useRef(null), useRef(null)]; // Refs for each carousel
   const linkedInUrl = "https://www.linkedin.com/in/himanshi-jain-92098b2a0";
   const behanceUrl = "https://www.behance.net/himanshijain14";
   const email = "himanshi.neeta@gmail.com";
+
+  useEffect(() => {
+    // Animate left section
+    gsap.fromTo(
+      leftSectionRef.current,
+      { x: -200, opacity: 0 },  // Start 200px to the left and fully transparent
+      { x: 0, opacity: 1, duration: 1.5, ease: 'power3.out' } // End at position and fully visible
+    );
+  
+    // Animate right section
+    gsap.fromTo(
+      rightSectionRef.current,
+      { x: 200, opacity: 0 },  // Start 200px to the right and fully transparent
+      { x: 0, opacity: 1, duration: 1.5, ease: 'power3.out' } // End at position and fully visible
+    );
+  }, []);
+  
+  
+  
 
   const handleLinkedInClick = () => {
     window.open(linkedInUrl, '_blank'); // Opens the LinkedIn link in a new tab
@@ -96,62 +120,95 @@ function App() {
   };
 
 
+  // const handleCircleClickbtm = (section) => {
+  //   // Update state to display the relevant part
+  //  setActivePart(section);
+ 
+  //  // Scroll down slightly after the state has been updated
+  //  setTimeout(() => {
+  //   window.scrollTo({ top: 2800, behavior: 'smooth' });}); // Delay to ensure smooth transition
+  //  };
   const handleCircleClickbtm = (section) => {
     // Update state to display the relevant part
-   setActivePart(section);
- 
-   // Scroll down slightly after the state has been updated
-   setTimeout(() => {
-    window.scrollTo({ top: 2200, behavior: 'smooth' });}); // Delay to ensure smooth transition
-   };
+    setActivePart(section);
+  
+    // Get the position of the target element dynamically
+    const processSectionElement = document.querySelector('.process-section');
+  
+    // Check if the element exists
+    if (processSectionElement) {
+      const elementPosition = processSectionElement.getBoundingClientRect().top + window.scrollY;
+      const offset = 100; // Adjust this offset if needed for additional space from the top
+  
+      // Scroll to the target position
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth',
+      });
+    }
+  };
+  
 
   const [scrollY, setScrollY] = useState(0);
 
+  const handleScroll = () => {
+    if (gridRef.current) {  // Ensure gridRef is defined
+      const gridPosition = gridRef.current.offsetTop || 0;
+      const fadeStart = gridPosition - window.innerHeight;
+      const fadeEnd = gridPosition;
+
+      // Calculate opacity based on scroll position
+      const opacity = Math.min(1, Math.max(0, (scrollY - fadeStart) / (fadeEnd - fadeStart)));
+      gridRef.current.style.opacity = opacity;
+    }
+  };
+
   useEffect(() => {
-    const handleScroll = () => {
+    const onScroll = () => {
       setScrollY(window.scrollY);
+      handleScroll();
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [scrollY]);
 
   return (
     <div className="website">
-      <div className="first-page">
-        <div className={`homepage ${scrollY > 5 ? 'scroll-out' : ''}`}>
-          <div className="header-section" style={{ cursor: 'pointer' }}>
+      {/* First Page */}
+      <div className="first-page" ref={firstPageRef} style={{ transform: `translateY(${scrollY * 0.5}px)`, opacity: 1 - scrollY / 300 }}>
+        <div className="homepage">
+          <div className="left-section" ref={leftSectionRef}>
             <h1>HIMANSHI JAIN</h1>
             <p>Product Designer</p>
           </div>
-          <div className="text-section">
+          <div className="right-section" ref={rightSectionRef}>
             <h1>ABOUT <span>ME</span></h1>
             <p>
               As a <span>product designer</span>, I focus on understanding human behavior and emotions. Great design is about empathy, understanding, and communication. I use human-centered principles to create solutions that solve problems and bring joy and comfort. Whether designing furniture, lighting, or games, I aim to make experiences that resonate with people.
             </p>
           </div>
         </div>
+      </div>
 
-        <div className='spacer'></div>
-        {/* Image Grid */}
-        <div className="image-grid-page">
-          <div className="image-grid">
-            <div className="image-item" onClick={() => handleImageClick(1)}>
-              <img src={grid1} alt="Work 1" />
-              <div className="image-title">Eco Sustainable Lounge Chair</div>
-            </div>
-            <div className="image-item" onClick={() => handleImageClick(2)}>
-              <img src={grid2} alt="Work 2" />
-              <div className="image-title">Infinity (Multifunctional Bookshelf)</div>
-            </div>
-            <div className="image-item" onClick={() => handleImageClick(3)}>
-              <img src={grid3} alt="Work 3" />
-              <div className="image-title">VoiceBook</div>
-            </div>
-            <div className="image-item" onClick={() => handleImageClick(4)}>
-              <img src={grid4} alt="Work 4" />
-              <div className="image-title">Jenga Together</div>
-            </div>
+      {/* Image Grid Page */}
+      <div ref={gridRef} className="image-grid-page">
+        <div className="image-grid">
+          <div className="image-item" onClick={() => handleImageClick(1)}>
+            <img src={grid1} alt="Work 1" />
+            <div className="image-title">Eco Sustainable Lounge Chair</div>
+          </div>
+          <div className="image-item" onClick={() => handleImageClick(2)}>
+            <img src={grid2} alt="Work 2" />
+            <div className="image-title">Infinity (Multifunctional Bookshelf)</div>
+          </div>
+          <div className="image-item" onClick={() => handleImageClick(3)}>
+            <img src={grid3} alt="Work 3" />
+            <div className="image-title">VoiceBook</div>
+          </div>
+          <div className="image-item" onClick={() => handleImageClick(4)}>
+            <img src={grid4} alt="Work 4" />
+            <div className="image-title">Jenga Together</div>
           </div>
         </div>
       </div>
@@ -290,7 +347,7 @@ function App() {
         </div>
       </div>
 
-      <Footer hideGallery={hideGallery} hidecarousal={hidecarousal} />
+      <Footer hideGallery={hideGallery} hidecarousal={hidecarousal} gridRef={gridRef} />
     </div>
   );
 }
