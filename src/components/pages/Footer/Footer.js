@@ -1,25 +1,28 @@
 import React from 'react';
 import './Footer.css';
 
-function Footer({ hideGallery, hidecarousal , gridRef}) {
+function Footer({ hideGallery, hidecarousal, hidescroller, gridRef }) {
   const scrollToPortfolio = () => {
     if (gridRef.current) {
       gridRef.current.scrollIntoView({ behavior: 'smooth' });
     }
     hideGallery();
     hidecarousal();
+    hidescroller(); // Hides the scroller
   };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    hideGallery(); // Hides the scroll text
-    hidecarousal(); // Hides the carousel
+    hideGallery();
+    hidecarousal();
+    hidescroller(); // Hides the scroller
   };
 
   const scrollToAbout = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    hideGallery(); // Hides the scroll text
-    hidecarousal(); // Hides the carousel
+    hideGallery();
+    hidecarousal();
+    hidescroller(); // Hides the scroller
   };
 
   const scrollToBottom = () => {

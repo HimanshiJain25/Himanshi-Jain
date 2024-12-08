@@ -17,17 +17,17 @@ const FinancialPart = () => {
             <h1>Financial Planning</h1>
 
             <div className="financialPart-images-grid">
-                <img src={image1} className="financialPart-grid-image"/>
-                <img src={image2} className="financialPart-grid-image"/>
-                <img src={image3} className="financialPart-grid-image"/>
-                <img src={image4} className="financialPart-grid-image"/>
-                <img src={image5} className="financialPart-grid-image"/>
-                <img src={image6} className="financialPart-grid-image"/>
-                <img src={image7} className="financialPart-grid-image"/>
-                <img src={image8} className="financialPart-grid-image"/>
-                <img src={image9} className="financialPart-grid-image"/>
-                <img src={image10} className="financialPart-grid-image"/>
-                <img src={image11} className="financialPart-grid-image"/>
+                <img src={image1} className="financialPart-grid-image" />
+                <img src={image2} className="financialPart-grid-image" />
+                <img src={image3} className="financialPart-grid-image" />
+                <img src={image4} className="financialPart-grid-image" />
+                <img src={image5} className="financialPart-grid-image" />
+                <img src={image6} className="financialPart-grid-image" />
+                <img src={image7} className="financialPart-grid-image" />
+                <img src={image8} className="financialPart-grid-image" />
+                <img src={image9} className="financialPart-grid-image" />
+                <img src={image10} className="financialPart-grid-image" />
+                <img src={image11} className="financialPart-grid-image" />
             </div>
         </div>
     );

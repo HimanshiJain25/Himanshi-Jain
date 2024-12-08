@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
-import '../../../App.css'; 
+import '../../../App.css';
 import p1s1 from '../../Assets/Project1/Slider/slider1.jpeg';
 import p1s2 from '../../Assets/Project1/Slider/slider2.jpeg';
 import p1s3 from '../../Assets/Project1/Slider/slider3.jpeg';
@@ -26,7 +26,7 @@ const ImageCarousel = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(updateImages, 4000); // Change image every 4 seconds
+    const interval = setInterval(updateImages, 2000); // Change image every 4 seconds
     return () => clearInterval(interval); // Clear interval on component unmount
   }, [currentIndex]);
 

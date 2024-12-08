@@ -1,0 +1,44 @@
+html {
+  height: 1.618;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.section {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  z-index: -1;
+}
+
+.section>* {
+  width: 50%;
+}
+
+.section-img {
+  position: relative;
+  display: flex;
+}
+
+.section-img-inner {
+  height: 60%;
+  width: 60%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(30px);
+  opacity: 0;
+  transition: 0.6s ease, opacity 0.6s ease, background-position 0.8s ease;
+}
+
+.section.active .section-img-inner {
+  opacity: 1;
+  filter: blur(0);
+}

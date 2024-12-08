@@ -1,0 +1,127 @@
+/* Scoped Swiper Styles */
+.slider-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+.custom-swiper-container {
+  position: relative;
+  height: auto;
+  max-width: 90rem;
+  /* Reduced the maximum width of the slider */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Slider container */
+.custom-swiper-container .tranding-slide {
+  width: 100%;
+  max-width: 70rem;
+  /* Reduced the maximum width of the slides */
+  aspect-ratio: 16 / 9;
+  /* Maintain the 16:9 aspect ratio */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 0.8rem;
+  /* Reduced the border radius */
+}
+
+/* Image styles for each slide */
+.custom-swiper-container .tranding-slide-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fit;
+  /* Fill the container, may crop edges */
+  border-radius: 0.8rem;
+  /* Reduced the border radius */
+}
+
+/* Custom scrollbar for Swiper */
+.custom-swiper-container .swiper-wrapper::-webkit-scrollbar {
+  width: 1rem;
+  /* Reduced scrollbar width */
+  background: transparent;
+  /* Transparent background */
+}
+
+.custom-swiper-container .swiper-wrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  /* Your custom color */
+  border-radius: 0.5rem;
+  /* Reduced the radius */
+}
+
+/* Override Swiper Navigation styles */
+.custom-swiper-container .swiper-button-prev,
+.custom-swiper-container .swiper-button-next {
+  width: 2.5rem;
+  /* Reduced the width of navigation buttons */
+  height: 2.5rem;
+  /* Reduced the height of navigation buttons */
+  border-radius: 50%;
+  filter: drop-shadow(0px 6px 16px rgba(18, 28, 53, 0.1));
+}
+
+.custom-swiper-container .swiper-button-prev::after,
+.custom-swiper-container .swiper-button-next::after {
+  font-size: 1.4rem;
+  /* Reduced the font size of navigation icons */
+  color: #ffac44;
+  /* White icon color inside the orange arrow */
+}
+
+/* Pagination styles */
+.custom-swiper-container .swiper-pagination-bullet {
+  background-color: #ffffff !important;
+  /* White color for default bullets */
+  width: 0.8rem;
+  /* Reduced the size of pagination bullets */
+  height: 0.8rem;
+  /* Reduced the size of pagination bullets */
+  opacity: 1;
+}
+
+.custom-swiper-container .swiper-pagination-bullet-active {
+  background-color: #ffac44 !important;
+  /* Orange color for active bullet */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .custom-swiper-container {
+    max-width: 100%;
+  }
+
+  .custom-swiper-container .tranding-slide {
+    width: 100%;
+    max-width: 50rem;
+    /* Smaller slides on smaller screens */
+    aspect-ratio: 16 / 9;
+  }
+
+  .custom-swiper-container .swiper-button-prev,
+  .custom-swiper-container .swiper-button-next {
+    width: 2rem;
+    /* Smaller navigation buttons */
+    height: 2rem;
+  }
+}
+
+
+.more-projects{
+  	/*height: 100vh;*/
+	width: 100%;
+	text-align: center;
+	font-size: 5.5rem;
+	font-weight: bold;
+	color: #ffac44;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

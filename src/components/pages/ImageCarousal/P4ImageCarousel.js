@@ -17,7 +17,7 @@ const ImageCarousel4 = () => {
 
     // Set the src for the next image element before fading
     nextImage.src = images[(currentIndex + 1) % images.length];
-    
+
     // Crossfade effect
     gsap.to(currentImage, { opacity: 0, duration: 0.5 });
     gsap.to(nextImage, { opacity: 1, duration: 0.5 });
@@ -27,7 +27,7 @@ const ImageCarousel4 = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(updateImages, 4000); // Change image every 4 seconds
+    const interval = setInterval(updateImages, 2000); // Change image every 4 seconds
     return () => clearInterval(interval); // Clear interval on component unmount
   }, [currentIndex]);
 

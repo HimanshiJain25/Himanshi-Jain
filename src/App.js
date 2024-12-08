@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import { gsap } from 'gsap';
 import Footer from './components/pages/Footer/Footer';
+import Hamburger from "./components/pages/Hamburger/hamburger";
 import P1ScrollText from './components/pages/ScrollText/P1ScrollText'; // ScrollText for grid 1
 import P2ScrollText from './components/pages/ScrollText/P2ScrollText'; // ScrollText for grid 2
 import P4ScrollText from './components/pages/ScrollText/P4ScrollText'; // ScrollText for grid 4
@@ -20,8 +21,19 @@ import IdeatePart from './components/pages/VoiceBox/p3IdeatePart';
 import ProtoPart from './components/pages/VoiceBox/p3ProtoPart';
 import TestPart from './components/pages/VoiceBox/p3TestPart';
 import FinancialPart from './components/pages/VoiceBox/p3FinancialPart';
+import Slider from './components/pages/Slider/slider'
+import ScrollImg5 from './components/pages/ScrollImg/ScrollImg5';
+import ScrollImg6 from './components/pages/ScrollImg/ScrollImg6';
+import ScrollImg7 from './components/pages/ScrollImg/ScrollImg7';
+import ScrollImg8 from './components/pages/ScrollImg/ScrollImg8';
+import ScrollImg9 from './components/pages/ScrollImg/ScrollImg9';
+import ScrollImg10 from './components/pages/ScrollImg/ScrollImg10';
+
 
 function App() {
+  const [activeScrollImg, setActiveScrollImg] = useState(null);
+  const [isScrollerVisible, setIsScrollerVisible] = useState(true);
+
   const [activeCarousel, setActiveCarousel] = useState(null); // State for active carousel
   const [activeCarouselbtn, setActiveCarouselbtn] = useState(null); // State for active carousel
   const [isContainerVisible, setIsContainerVisible] = useState(false);
@@ -43,7 +55,7 @@ function App() {
       { x: -200, opacity: 0 },  // Start 200px to the left and fully transparent
       { x: 0, opacity: 1, duration: 1.5, ease: 'power3.out' } // End at position and fully visible
     );
-  
+
     // Animate right section
     gsap.fromTo(
       rightSectionRef.current,
@@ -51,9 +63,27 @@ function App() {
       { x: 0, opacity: 1, duration: 1.5, ease: 'power3.out' } // End at position and fully visible
     );
   }, []);
-  
-  
-  
+
+
+
+
+  const handleSlideClick = (index) => {
+    // Map slider index to corresponding scroll image component
+    const scrollImgMap = {
+      0: "ScrollImg5",
+      1: "ScrollImg6",
+      2: "ScrollImg7",
+      3: "ScrollImg8",
+      4: "ScrollImg9",
+      5: "ScrollImg10",
+    };
+    setActiveScrollImg(scrollImgMap[index]);
+    setIsScrollerVisible(true); // Ensure scroller is visible when slide is clicked
+  };
+
+  const hidescroller = () => {
+    setIsScrollerVisible(false); // Hide the scroller
+  };
 
   const handleLinkedInClick = () => {
     window.open(linkedInUrl, '_blank'); // Opens the LinkedIn link in a new tab
@@ -70,7 +100,7 @@ function App() {
 
   const handleImageClick = (gridIndex) => {
     setActiveCarousel(gridIndex);
-    
+
     hideGallery(); // Hides the carousel
 
     // Scroll to the respective carousel after the state updates
@@ -87,7 +117,7 @@ function App() {
   const handleReadMoreClick = () => {
     // Toggle visibility of the container (if needed)
     setIsContainerVisible(!isContainerVisible);
-  
+
     // Scroll down slightly when "Read More" is pressed
     setTimeout(() => {
       window.scrollBy({
@@ -96,6 +126,8 @@ function App() {
       });
     }, 100); // Delay to ensure smooth transition
   };
+
+
 
   const hideGallery = () => {
     setIsContainerVisible(false);
@@ -106,40 +138,41 @@ function App() {
   };
 
   const handleCircleClick = (section) => {
-   // Update state to display the relevant part
-  setActivePart(section);
-  setActiveCarouselbtn(section)
+    // Update state to display the relevant part
+    setActivePart(section);
+    setActiveCarouselbtn(section)
 
-  // Scroll down slightly after the state has been updated
-  setTimeout(() => {
-    window.scrollBy({
-      top: 200, // Adjust the value to scroll down more or less
-      behavior: 'smooth',
-    });
-  }, 100); // Delay to ensure smooth transition
+    // Scroll down slightly after the state has been updated
+    setTimeout(() => {
+      window.scrollBy({
+        top: 200, // Adjust the value to scroll down more or less
+        behavior: 'smooth',
+      });
+    }, 100); // Delay to ensure smooth transition
   };
 
 
   // const handleCircleClickbtm = (section) => {
   //   // Update state to display the relevant part
   //  setActivePart(section);
- 
+
   //  // Scroll down slightly after the state has been updated
   //  setTimeout(() => {
   //   window.scrollTo({ top: 2800, behavior: 'smooth' });}); // Delay to ensure smooth transition
   //  };
+
   const handleCircleClickbtm = (section) => {
     // Update state to display the relevant part
     setActivePart(section);
-  
+
     // Get the position of the target element dynamically
     const processSectionElement = document.querySelector('.process-section');
-  
+
     // Check if the element exists
     if (processSectionElement) {
       const elementPosition = processSectionElement.getBoundingClientRect().top + window.scrollY;
       const offset = 100; // Adjust this offset if needed for additional space from the top
-  
+
       // Scroll to the target position
       window.scrollTo({
         top: elementPosition - offset,
@@ -147,7 +180,7 @@ function App() {
       });
     }
   };
-  
+
 
   const [scrollY, setScrollY] = useState(0);
 
@@ -175,6 +208,7 @@ function App() {
 
   return (
     <div className="website">
+      <Hamburger />
       {/* First Page */}
       <div className="first-page" ref={firstPageRef} style={{ transform: `translateY(${scrollY * 0.5}px)`, opacity: 1 - scrollY / 300 }}>
         <div className="homepage">
@@ -185,7 +219,7 @@ function App() {
           <div className="right-section" ref={rightSectionRef}>
             <h1>ABOUT <span>ME</span></h1>
             <p>
-              As a <span>product designer</span>, I focus on understanding human behavior and emotions. Great design is about empathy, understanding, and communication. I use human-centered principles to create solutions that solve problems and bring joy and comfort. Whether designing furniture, lighting, or games, I aim to make experiences that resonate with people.
+              As a <span>product designer</span>, I focus on understanding human behavior and emotions. Great design is about empathy, understanding, and communication. I use human centered principles to create solutions that solve problems and bring joy and comfort. Whether designing furniture, lighting, or games, I aim to make experiences that resonate with people.
             </p>
           </div>
         </div>
@@ -262,79 +296,96 @@ function App() {
       {activeCarousel === 4 && <P4ScrollText isContainerVisible={isContainerVisible} hideGallery={hideGallery} />}
 
       {activeCarousel === 3 && isContainerVisible && (
-            <div className="process-section">
-              <h1>Process</h1>
-              <div className="process-circles">
-                <div className="process-circle" onClick={() => handleCircleClick('Understand')}>
-                  Understand
-                </div>
-                <div className="process-circle" onClick={() => handleCircleClick('Secondary Research')}>
-                  Secondary Research
-                </div>
-                <div className="process-circle" onClick={() => handleCircleClick('Primary Research')}>
-                  Primary Research & Empathise
-                </div>
-                
-                <div className="process-circle" onClick={() => handleCircleClick('Ideate')}>
-                  Ideate
-                </div>
-                <div className="process-circle" onClick={() => handleCircleClick('Design/Prototype')}>
-                  Design/Prototype
-                </div>
-                <div className="process-circle" onClick={() => handleCircleClick('Test & Learn')}>
-                  Test & Learn
-                </div>
-                <div className="process-circle" onClick={() => handleCircleClick('Financial Planning')}>
-                  Financial Planning
-                </div>
-              </div>
-
-              {/* Display the corresponding component based on the clicked circle */}
-              {activePart === 'Understand' && <UnderstandPart />}
-              {activePart === 'Primary Research' && <PrimaryPart/>}
-              {activePart === 'Secondary Research' && <SecondaryPart/>}
-              {activePart === 'Ideate' && <IdeatePart/>}
-              {activePart === 'Design/Prototype' && <ProtoPart/>}
-              {activePart === 'Test & Learn' && <TestPart/>}
-              {activePart === 'Financial Planning' && <FinancialPart/>}
+        <div className="process-section">
+          <h1>Process</h1>
+          <div className="process-circles">
+            <div className="process-circle" onClick={() => handleCircleClick('Understand')}>
+              Understand
             </div>
-          )}
-
-
-{activeCarousel === 3 && activeCarouselbtn && isContainerVisible && (
-            <div className="process-section">
-              <h1></h1>
-              <div className="process-circles">
-                <div className="process-circle" onClick={() => handleCircleClickbtm('Understand')}>
-                  Understand
-                </div>
-                <div className="process-circle" onClick={() => handleCircleClickbtm('Secondary Research')}>
-                  Secondary Research
-                </div>
-                <div className="process-circle" onClick={() => handleCircleClickbtm('Primary Research')}>
-                  Primary Research & Empathise
-                </div>
-
-                <div className="process-circle" onClick={() => handleCircleClickbtm('Ideate')}>
-                  Ideate
-                </div>
-                <div className="process-circle" onClick={() => handleCircleClickbtm('Design/Prototype')}>
-                  Design/Prototype
-                </div>
-                <div className="process-circle" onClick={() => handleCircleClickbtm('Test & Learn')}>
-                  Test & Learn
-                </div>
-                <div className="process-circle" onClick={() => handleCircleClickbtm('Financial Planning')}>
-                  Financial Planning
-                </div>
-              </div>
-
+            <div className="process-circle" onClick={() => handleCircleClick('Secondary Research')}>
+              Secondary Research
             </div>
-          )}
-          
+            <div className="process-circle" onClick={() => handleCircleClick('Primary Research')}>
+              Primary Research & Empathise
+            </div>
+
+            <div className="process-circle" onClick={() => handleCircleClick('Ideate')}>
+              Ideate
+            </div>
+            <div className="process-circle" onClick={() => handleCircleClick('Design/Prototype')}>
+              Design/Prototype
+            </div>
+            <div className="process-circle" onClick={() => handleCircleClick('Test & Learn')}>
+              Test & Learn
+            </div>
+            <div className="process-circle" onClick={() => handleCircleClick('Financial Planning')}>
+              Financial Planning
+            </div>
+          </div>
+
+          {/* Display the corresponding component based on the clicked circle */}
+          {activePart === 'Understand' && <UnderstandPart />}
+          {activePart === 'Primary Research' && <PrimaryPart />}
+          {activePart === 'Secondary Research' && <SecondaryPart />}
+          {activePart === 'Ideate' && <IdeatePart />}
+          {activePart === 'Design/Prototype' && <ProtoPart />}
+          {activePart === 'Test & Learn' && <TestPart />}
+          {activePart === 'Financial Planning' && <FinancialPart />}
+        </div>
+      )}
+
+
+      {activeCarousel === 3 && activeCarouselbtn && isContainerVisible && (
+        <div className="process-section">
+          <h1></h1>
+          <div className="process-circles">
+            <div className="process-circle" onClick={() => handleCircleClickbtm('Understand')}>
+              Understand
+            </div>
+            <div className="process-circle" onClick={() => handleCircleClickbtm('Secondary Research')}>
+              Secondary Research
+            </div>
+            <div className="process-circle" onClick={() => handleCircleClickbtm('Primary Research')}>
+              Primary Research & Empathise
+            </div>
+
+            <div className="process-circle" onClick={() => handleCircleClickbtm('Ideate')}>
+              Ideate
+            </div>
+            <div className="process-circle" onClick={() => handleCircleClickbtm('Design/Prototype')}>
+              Design/Prototype
+            </div>
+            <div className="process-circle" onClick={() => handleCircleClickbtm('Test & Learn')}>
+              Test & Learn
+            </div>
+            <div className="process-circle" onClick={() => handleCircleClickbtm('Financial Planning')}>
+              Financial Planning
+            </div>
+          </div>
+
+        </div>
+      )}
+
+
+        
+      <div className="slider-page">
+        <Slider onSlideClick={handleSlideClick} />
+      </div>
+
+      {/* Scroller Section */}
+      {isScrollerVisible && (
+        <div className="scroller">
+          {activeScrollImg === "ScrollImg5" && <ScrollImg5 />}
+          {activeScrollImg === "ScrollImg6" && <ScrollImg6 />}
+          {activeScrollImg === "ScrollImg7" && <ScrollImg7 />}
+          {activeScrollImg === "ScrollImg8" && <ScrollImg8 />}
+          {activeScrollImg === "ScrollImg9" && <ScrollImg9 />}
+          {activeScrollImg === "ScrollImg10" && <ScrollImg10 />}
+        </div>
+      )}
 
       <div className="last-page">
-      <h1 className="Connect-bg">CONNECT</h1>
+        <h1 className="Connect-bg">CONNECT</h1>
 
         <div className="contact">
           <h2>Let's Connect</h2>
@@ -347,7 +398,8 @@ function App() {
         </div>
       </div>
 
-      <Footer hideGallery={hideGallery} hidecarousal={hidecarousal} gridRef={gridRef} />
+      <Footer hideGallery={hideGallery} hidecarousal={hidecarousal} gridRef={gridRef} hidescroller={hidescroller} />
+
     </div>
   );
 }

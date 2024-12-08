@@ -4,7 +4,7 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	min-height: 100vh; 
+	min-height: 100vh;
 }
 
 .contact {
@@ -14,72 +14,101 @@
 	max-width: 600px;
 	opacity: 1;
 	transition: opacity 1s ease;
-	align-self: center; /* Align the element to the center */
+	align-self: center;
+	/* Align the element to the center */
 }
 
 .contact h2 {
-	font-size: 3rem; /* Adjust for readability */
+	font-size: 3rem;
+	/* Adjust for readability */
 	font-weight: bold;
 	color: white;
 	margin: 0;
 }
-  
+
 .contact p {
 	font-size: 1.2rem;
-	text-transform: uppercase;  
+	text-transform: uppercase;
 	color: rgba(255, 255, 255, 0.662);
 	letter-spacing: 0.1rem;
 }
-  
-  
+
+
 
 .button-container {
 	display: flex;
-	flex-direction: column; /* Stack buttons vertically */
-	align-items: center; /* Center align the buttons */
-	margin-top: 20px; /* Space above the buttons */
+	flex-direction: column;
+	/* Stack buttons vertically */
+	align-items: center;
+	/* Center align the buttons */
+	margin-top: 20px;
+	/* Space above the buttons */
 }
-  
+
 .social-button {
-	background-color: transparent; /* Transparent background */
-	border: 2px solid white; /* Thin white border */
-	border-radius: 30px; /* Rounded edges */
-	color: white; /* White text color */
-	padding: 15px 30px; /* Increased padding for larger buttons */
-	width: 200px; /* Fixed width */
-	margin: 10px 0; /* Space between buttons */
-	font-size: 1.5rem; /* Increased font size */
-	cursor: pointer; /* Pointer cursor on hover */
-	transition: background-color 0.3s, color 0.3s; /* Transition effects */
+	background-color: transparent;
+	/* Transparent background */
+	border: 2px solid white;
+	/* Thin white border */
+	border-radius: 30px;
+	/* Rounded edges */
+	color: white;
+	/* White text color */
+	padding: 15px 30px;
+	/* Increased padding for larger buttons */
+	width: 200px;
+	/* Fixed width */
+	margin: 10px 0;
+	/* Space between buttons */
+	font-size: 1.5rem;
+	/* Increased font size */
+	cursor: pointer;
+	/* Pointer cursor on hover */
+	transition: background-color 0.3s, color 0.3s;
+	/* Transition effects */
 }
-  
-  
+
+
 .email-button {
-	background-color: #ffac44; /* Transparent background */
-	border: 2px solid white; /* Thin white border */
-	border-radius: 30px; /* Rounded edges */
-	color: black; /* White text color */
-	padding: 15px 30px; /* Increased padding for larger buttons */
-	width: 200px; /* Fixed width */
-	margin: 10px 0; /* Space between buttons */
-	font-size: 1.5rem; /* Increased font size */
-	cursor: pointer; /* Pointer cursor on hover */
-	transition: background-color 0.3s, color 0.3s; /* Transition effects */
+	background-color: #ffac44;
+	/* Transparent background */
+	border: 2px solid white;
+	/* Thin white border */
+	border-radius: 30px;
+	/* Rounded edges */
+	color: black;
+	/* White text color */
+	padding: 15px 30px;
+	/* Increased padding for larger buttons */
+	width: 200px;
+	/* Fixed width */
+	margin: 10px 0;
+	/* Space between buttons */
+	font-size: 1.4rem;
+	/* Increased font size */
+	cursor: pointer;
+	/* Pointer cursor on hover */
+	transition: background-color 0.3s, color 0.3s;
+	/* Transition effects */
 }
-  
-.email-button:hover{
-	background-color: transparent; /* Light background on hover */
-	color: #ffac44; /* Change text color on hover */
-  
+
+.email-button:hover {
+	background-color: transparent;
+	/* Light background on hover */
+	color: #ffac44;
+	/* Change text color on hover */
+
 }
-  
+
 .social-button:hover {
-	background-color: rgba(0, 0, 0, 0.123); /* Light background on hover */
-	color: #ffac44; /* Change text color on hover */
+	background-color: rgba(0, 0, 0, 0.123);
+	/* Light background on hover */
+	color: #ffac44;
+	/* Change text color on hover */
 }
 
 
-.Connect-bg{
+.Connect-bg {
 	position: absolute;
 	font-family: 'Arial', sans-serif;
 	top: 10%;
@@ -89,8 +118,57 @@
 	font-size: 15rem;
 	font-weight: bold;
 	color: transparent;
-	z-index: 1; /* Ensure it stays below the grid */
-	-webkit-text-stroke: 2px rgba(128, 128, 128, 0.178); /* Outlined text */
-	transform: translateX(0); /* Move to the left (normal position) */
+	z-index: 1;
+	/* Ensure it stays below the grid */
+	-webkit-text-stroke: 2px rgba(128, 128, 128, 0.178);
+	/* Outlined text */
+	transform: translateX(0);
+	/* Move to the left (normal position) */
 
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+	.contact h2 {
+		font-size: 2.5rem;
+		/* Adjust font size */
+	}
+
+	.contact p {
+		font-size: 1rem;
+		/* Adjust font size */
+	}
+
+	.social-button,
+	.email-button {
+		padding: 10px 20px;
+		width: 100%;
+		/* Full width for smaller screens */
+		font-size: 1.2rem;
+	}
+
+	.Connect-bg {
+		display: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.contact h2 {
+		font-size: 2rem;
+		/* Further reduce font size */
+	}
+
+	.contact p {
+		font-size: 0.9rem;
+	}
+
+	.Connect-bg {
+		display: none;
+	}
+
+	.button-container {
+		margin-top: 10px;
+		/* Reduce spacing */
+	}
 }

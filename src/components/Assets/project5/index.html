@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <style>
+    html {
+      height: 1.618;
+    }
+    body {
+        font-family: sans-serif;
+    }
+    .section {
+      display: flex; 
+      min-height: 100vh;
+      position: relative;
+      z-index: 2;
+    }
+    .section > * {
+      width: 50%; 
+    }
+    .section-img {
+      position: relative;
+      display: flex;
+    }
+    .section-img-inner {
+        height: 60%;
+        width: 60%; 
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); /* Center the element */
+        mix-blend-mode: multiply;
+        background-size: cover; /* Change to cover for full size */
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: blur(30px);
+        opacity: 0;
+        transition: .6s ease, opacity .6s ease, background-position .8s ease;
+    }
+
+    .section.active .section-img-inner {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+  </style>
+  <div class="bg"></div>
+  
+  <!-- Section 1 -->
+  <div class="section">
+    <div class="section-img">
+      <div class="section-img-inner" style="background-image: url(c10.png);"></div>
+    </div>
+  </div>  
+
+  <!-- Section 2 -->
+  <div class="section">
+    <div class="section-img">
+      <div class="section-img-inner" style="background-image: url(c2.png);"></div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <div class="section-img">
+      <div class="section-img-inner" style="background-image: url(c3.png);"></div>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <div class="section-img">
+      <div class="section-img-inner" style="background-image: url(c4.png);"></div>
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+    $(window).scroll(function(){
+      let $window = $(window),
+          $body = $('body'),   
+          $section = $('.section');
+      let scroll = $window.scrollTop() + ($window.height() / 3);
+      $section.each(function(){ 
+        if($(this).position().top <= scroll && $(this).position().top + $(this).height() > scroll){
+          $body.removeClass(function (index, css){
+            return (css.match (/(^|\s)color-\s+/g) || []).join(' ');
+          });
+          $('.section').removeClass('active');
+          $(this).addClass('active');
+        }
+      });
+    }).scroll();
+</script>
+</body>
+</html>

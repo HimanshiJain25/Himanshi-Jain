@@ -53,11 +53,11 @@ const P1ScrollText = ({ isContainerVisible, hideGallery }) => {
   return (
     isContainerVisible && (
       <div className="gallery" ref={containerRef}>
-        
+
         <div className="leftblock"> {/* Swapped */}
           <div className="photo-container">
 
-          <div className="photo">
+            <div className="photo">
               <img src={p1i1} alt="img-1" />
             </div>
             <div className="photo">
@@ -103,7 +103,7 @@ const P1ScrollText = ({ isContainerVisible, hideGallery }) => {
           </div>
           <div className="details">
             <p>
-            After gaining a basic understanding of chairs from the research, I created a moodboard to explore various existing chair designs, different materials, and how different chair structures are balanced. This included examining weight distribution and identifying the supports needed for stability.
+              After gaining a basic understanding of chairs from the research, I created a moodboard to explore various existing chair designs, different materials, and how different chair structures are balanced. This included examining weight distribution and identifying the supports needed for stability.
             </p>
           </div>
           <div className="details"><p>This project focuses on creating an eco-sustainable lounge chair designed for short-term relaxation in public and private spaces. Combining lightweight yet sturdy materials, the chair offers an innovative solution for modern homeowners, eco-conscious consumers, and wellness centers. Its versatile design makes it ideal for areas such as pool sides, hotels, living rooms, and relaxation centers, providing comfort while promoting sustainability.</p></div>
@@ -112,17 +112,17 @@ const P1ScrollText = ({ isContainerVisible, hideGallery }) => {
           </div>
           <div className="details">
             <p>
-            The materials chosen for this project, including triwall sheets and paper rods, were selected for their eco-friendly properties and structural integrity. The natural, uncolored appearance was intentionally left to highlight the raw, beautiful texture of the triwall sheets, enhancing the sustainability narrative while offering a minimalistic aesthetic. While Fevicol was used as a temporary adhesive, future iterations will explore more sustainable gluing options to further align with the eco-conscious objectives of the design.
+              The materials chosen for this project, including triwall sheets and paper rods, were selected for their eco-friendly properties and structural integrity. The natural, uncolored appearance was intentionally left to highlight the raw, beautiful texture of the triwall sheets, enhancing the sustainability narrative while offering a minimalistic aesthetic. While Fevicol was used as a temporary adhesive, future iterations will explore more sustainable gluing options to further align with the eco-conscious objectives of the design.
             </p>
           </div>
           <div className="details"><p>After sketching, the top 10 side views were selected based on the material I planned to use. While all the designs could be made in wood or metal, not all were suitable for construction with triwall sheets. This selection process ensured that the designs aligned with the material's properties.
-From the top 10 side views, I narrowed it down to two designs: a lounge chair and a rocking chair. I then made 1/4 scale models of both to evaluate which one would work better.
-</p></div>          <div className="details">
+            From the top 10 side views, I narrowed it down to two designs: a lounge chair and a rocking chair. I then made 1/4 scale models of both to evaluate which one would work better.
+          </p></div>          <div className="details">
             <p>After reviewing the 1/4 scale models, I chose the lounge chair because there was a slight risk of the rocking chair tilting due to the triwall sheet material. I then created a full-size cutout of the lounge chair's side view and tested it myself. During testing, I noticed that the chair might tip forward if a heavy person sat only on the front part. To prevent this, I adjusted the design, making the front more square-shaped to ensure the chair stays stable and secure.</p>
           </div>
           <div className="details">
             <p>
-            This design shows the measurements for a structure with three parts: left, center, and right. It is 34.7 inches tall and 69.3 inches wide. The angles, including 137 degrees, help the structure stay balanced. Each profile consists of 20 layers each, making the design strong and well-proportioned.
+              This design shows the measurements for a structure with three parts: left, center, and right. It is 34.7 inches tall and 69.3 inches wide. The angles, including 137 degrees, help the structure stay balanced. Each profile consists of 20 layers each, making the design strong and well-proportioned.
             </p>
           </div>
           <div className="details"><p>I repurposed the leftover pieces from the chair by turning them into a side table and a shoe supporter. The remaining material was used for prototyping another project, ensuring that nothing went to waste.</p></div>          <div className="details">
@@ -130,7 +130,7 @@ From the top 10 side views, I narrowed it down to two designs: a lounge chair an
           </div>
           <div className="details">
             <p>
-            In future refinements, the design will feature a more three-dimensional appearance, explore additional sustainable materials, and include eco-friendly lamination and sustainable glue.
+              In future refinements, the design will feature a more three-dimensional appearance, explore additional sustainable materials, and include eco-friendly lamination and sustainable glue.
             </p>
           </div>
         </div>

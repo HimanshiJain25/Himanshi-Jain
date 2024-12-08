@@ -28,7 +28,7 @@ const ImageCarousel2 = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(updateImages, 4000); // Change image every 4 seconds
+    const interval = setInterval(updateImages, 2000); // Change image every 4 seconds
     return () => clearInterval(interval); // Clear interval on component unmount
   }, [currentIndex]);
 

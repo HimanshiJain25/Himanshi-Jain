@@ -37,9 +37,10 @@
 .scroll-to-top {
   position: fixed;
   right: 20px;
-  bottom: 20px; /* Above the footer */
+  bottom: 20px;
+  /* Above the footer */
   width: 40px;
-  height: 40px;  
+  height: 40px;
   background-color: rgba(0, 0, 0, 0.344);
   border: 2px solid white;
   color: white;
@@ -50,9 +51,18 @@
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s;
-  z-index: 1001; /* Make sure it's above other elements */
+  z-index: 1001;
+  /* Make sure it's above other elements */
 }
 
 .scroll-to-top:hover {
   color: #ffac44;
+}
+
+
+/* Media Query */
+@media (max-width: 768px) {
+  .footer-container {
+    display: none;
+  }
 }

@@ -6,20 +6,17 @@
 @import './components/pages/ScrollText/ScrollText.css';
 @import './components/pages/ContactPage/contact.css';
 @import './components/pages/VoiceBox/voicebox.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import './components/pages/Slider/slider.css';
+@import './components/pages/ScrollImg/ScrollImg.css';
 
 body {
 	margin: 0;
 	overflow-x: hidden;
-	font-family: 'Poppins', sans-serif; /* Default font for body */
-	background-color: #000000; /* Dark background */
-	color: #fff; /* Light text */
+	font-family: 'Poppins', sans-serif;
+	/* Default font for body */
+	background-color: #000000;
+	/* Dark background */
+	color: #fff;
+	/* Light text */
 }
- 
-
-
-    
-
-
-
-
-
